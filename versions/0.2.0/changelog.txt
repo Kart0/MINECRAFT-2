@@ -6,8 +6,7 @@ Bienvenidos a la versión de CALIDAD DE VIDA/GAMEPLAY para la *EXPERIENCIA DEFIN
 
 El Shader interno fue ajustado para que el mundo no se vea tan saturado, también se han añadido pequeños detalles que harán que la experiencia se sienta más inmersiva y tenga más calidad de vida, la actualización de Cobre ha sido añadida de igual manera (expandiéndola un poco), la música épica del compositor "Andreas Zoeller" también fue añadida para brindar un ambiente único al gameplay y muchos mods fueron actualizados a sus versiones más estables.
 
-<details>
-<summary>Info en detalle</summary>
+*Info en detalle▽
 - Shader (terrain.fsh, entity.fsh y block_layer_opaque.fsh)
 - Fancymenu (layout pause screen)
 - Entity Pin Cushion Revived (añadido)
@@ -22,11 +21,9 @@ El Shader interno fue ajustado para que el mundo no se vea tan saturado, tambié
 - Exline's Copper Equipment (mod añadido)
 - Exline's Wool to String (mod añadido)
 - NICE MOB VARIANTS (datapack y resourcepack exclusivo añadido)
-- Orchestra Soundpack (resourcepack añadido)
-</details>
+- Orchestra Soundpack (resourcepack añadido)*
 
-<details>
-<summary>Actualizaciones</summary>
+*Actualizaciones▽
 - Wavey Capes (mod)
 - OptiGUI (mod)
 - Forge Config API Port (mod cliente y server)
@@ -34,16 +31,14 @@ El Shader interno fue ajustado para que el mundo no se vea tan saturado, tambié
 - Chat patches (config)
 - Jade (config)
 - Fsit (config cliente y server)
-- Piggyback (config cliente y server)
-</details>
+- Piggyback (config cliente y server)*
 
 
 ### **Server**
 
 ¡Los animales ahora serán más únicos! Muchas variantes empezarán a aparecer por todo el lugar, detalles de "calidad de gameplay" han sido añadidos para mejorar la estabilidad y cantidad de contenido que puede generar el servidor.
 
-<details>
-<summary>Info en detalle</summary>
+*Info en detalle▽
 - Pause Server When Empty (añadido)
 - fleeing animals (añadido)
 - living things (añadido)
@@ -58,8 +53,7 @@ El Shader interno fue ajustado para que el mundo no se vea tan saturado, tambié
 - Slide Show Pro (añadido)
 - Exline's Copper Equipment (añadido)
 - Exline's Wool to String (añadido)
-- NICE MOB VARIANTS (datapack exclusivo añadido)
-<details>
+- NICE MOB VARIANTS (datapack exclusivo añadido)*
 
 
 
