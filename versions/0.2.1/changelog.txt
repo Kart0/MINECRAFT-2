@@ -1,0 +1,41 @@
+## **CAMBIOS HECHOS V0.2.1**
+
+Este es un pequeño parche que servirá tanto al cliente como al servidor.
+
+### **Cliente**
+
+Datos adicionales han sido añadidos/actualizados/ajustados para que no hayan errores gráficos presentes durante el gameplay, tambien se han ajustaods los menus dándoles una apariencia más ligada a la experiencia final, la parte estética del menu de 'Graficos' aún esta en beta pero es 100% funcional.
+
+<details>
+<summary>Info en detalle</summary>
+- Añadidos datos de P.F.T. (errores visuales corregidos)
+- Barra de entidades ajustada
+- Jade y DnT traducidos
+- Resourcepacks actualizados
+- Mods redundantes de optimización removidos
+- Menus ajustados y rediseñados, "Graficos" reemplazado por "Chunks"
+- Renderizado de chunks y Teclas personalizadas reiniciadas
+</details>
+
+
+### **Server**
+
+Los detalles marinos han sido expandidos y las "Ancient Cities" actualizadas, también nuevas pequeñas estructuras apareceran por el mapa (si, más de las que ya hay).
+
+<details>
+<summary>Info en detalle</summary>
+- Unnamed Sea (añadido)
+- Luki's Ancient Cities (añadido)
+- MinGen (mod añadido)
+- Lista de jugadores actualizada
+- Flatulencias ajustadas y nerfeadas
+<details>
+
+
+
+***Nota del desarrollador***
+
+*Estoy explorando la idea de hacer las aldeas más pequeñas para evitar perdida de rendimiento, a veces menos es más, todo se verá en esta versión de prueba*
+
+
+**-karto**
