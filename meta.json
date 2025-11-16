@@ -4,21 +4,21 @@
     "versions": [
         {
             "id": "0.1.0",
-            "releasedAt": 1762214400000,
+            "releasedAt": 1762393200000,
             "updateType": "",
             "promotions": {
             }
         },
         {
             "id": "0.2.0",
-            "releasedAt": 1762732800000,
+            "releasedAt": 1762804080000,
             "updateType": "major",
             "promotions": {
             }
         },
         {
             "id": "0.2.1",
-            "releasedAt": 1763164800000,
+            "releasedAt": 1763264576857,
             "updateType": "minor",
             "promotions": {
             }
