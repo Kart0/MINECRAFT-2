@@ -2,12 +2,26 @@
     "schemaVersion": 1,
     "hotfixesFormat": null,
     "versions": [
-      {
-          "id": "0.1.0",
-          "releasedAt": 1753056000000,
-      "updateType": "",
-          "promotions": {
-          }
-      }
+        {
+            "id": "0.1.0",
+            "releasedAt": 1762214400000,
+            "updateType": "",
+            "promotions": {
+            }
+        },
+        {
+            "id": "0.2.0",
+            "releasedAt": 1762732800000,
+            "updateType": "major",
+            "promotions": {
+            }
+        },
+        {
+            "id": "0.2.1",
+            "releasedAt": 1763164800000,
+            "updateType": "minor",
+            "promotions": {
+            }
+        }
     ]
-  }
+}
