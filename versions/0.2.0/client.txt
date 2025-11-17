@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ### **Cliente**
 
 El Shader interno fue ajustado para que el mundo no se vea tan saturado, también se han añadido pequeños detalles que harán que la experiencia se sienta más inmersiva y tenga más calidad de vida, la actualización de Cobre ha sido añadida de igual manera (expandiéndola un poco), la música épica del compositor "Andreas Zoeller" también fue añadida para brindar un ambiente único al gameplay y muchos mods fueron actualizados a sus versiones más estables.
@@ -28,35 +27,3 @@ El Shader interno fue ajustado para que el mundo no se vea tan saturado, tambié
 - Chat patches (config)
 - Jade (config)
 - Fsit (config cliente y server)
-=======
-### **Cliente**
-
-El Shader interno fue ajustado para que el mundo no se vea tan saturado, también se han añadido pequeños detalles que harán que la experiencia se sienta más inmersiva y tenga más calidad de vida, la actualización de Cobre ha sido añadida de igual manera (expandiéndola un poco), la música épica del compositor "Andreas Zoeller" también fue añadida para brindar un ambiente único al gameplay y muchos mods fueron actualizados a sus versiones más estables.
-
-*Info en detalle*▽
-- Shader (terrain.fsh, entity.fsh y block_layer_opaque.fsh)
-- Fancymenu (layout pause screen)*
-- Entity Pin Cushion Revived (añadido)
-- Living things (añadido)
-- Footprintparticle (añadido)
-- Flatuence Update (The Fart Mod) (añadido)
-- Web (añadido)
-- Real Arrow Tip (mod añadido)
-- Bray's Better Bow & Arrows (resourcepack añadido)
-- Connected Doors (mod añadido)
-- Slide Show Pro (mod añadido)
-- Exline's Copper Equipment (mod añadido)
-- Exline's Wool to String (mod añadido)
-- NICE MOB VARIANTS (datapack y resourcepack exclusivo añadido)
-- Orchestra Soundpack (resourcepack añadido)
-
-*Actualizaciones*▿
-- Wavey Capes (mod)
-- OptiGUI (mod)
-- Forge Config API Port (mod cliente y server)
-- Wither's Wrath (mod cliente y server)
-- Chat patches (config)
-- Jade (config)
-- Fsit (config cliente y server)
->>>>>>> ba99412e3d192a45e072e11bbcd934b8ee0b0ec2
-- Piggyback (config cliente y server)
