@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliente - Actualizador del Juego</title>
+    <!-- Incluir Marked.js para soporte Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        @font-face {
+            font-family: 'Minecraft';
+            src: url('media_files/MinecraftRegular-Bmg3.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'Minecraft';
+            src: url('media_files/MinecraftBold-nMK1.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'Minecraft';
+            src: url('media_files/MinecraftItalic-R8Mo.otf') format('opentype');
+            font-weight: normal;
+            font-style: italic;
+        }
+        
+        @font-face {
+            font-family: 'Minecraft';
+            src: url('media_files/MinecraftBoldItalic-1y1e.otf') format('opentype');
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Minecraft', Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .video-background video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: -1;
+        }
+
+        .header {
+            width: 100%;
+            padding: 4vh 2vw 2vh 2vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            position: relative; /* Para posicionar el botón de regreso */
+        }
+
+        /* Botón de regreso */
+        .back-button {
+            position: absolute;
+            left: 2vw;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: transparent;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            z-index: 2;
+        }
+
+        .back-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('media_files/square_button.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+            transition: all 0.3s ease;
+            border-radius: 0;
+        }
+
+        .back-button:hover::before {
+            background-image: url('media_files/square_button_highlighted.png');
+        }
+
+        .back-button:hover {
+            transform: translateY(-50%) translateY(-2px);
+        }
+
+        .back-button:active {
+            transform: translateY(-50%) translateY(0);
+        }
+
+        .logo {
+            height: 25vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            max-width: 85vw;
+            object-fit: contain;
+        }
+
+        .content-container {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4vh 4vw;
+            gap: 3vw;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 60vh;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 15px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            font-size: 1.1em;
+            overflow-y: auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .main-content {
+            flex: 1;
+            height: 60vh;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 0 25px 25px 25px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            font-size: 1.1em;
+            overflow-y: auto;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .version-item {
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .version-item:first-child.selected {
+            border-color: #4CAF50;
+            background: rgba(76, 175, 80, 0.15);
+        }
+
+        .version-item.selected:not(:first-child) {
+            border-color: #808080;
+            background: rgba(128, 128, 128, 0.15);
+        }
+
+        .version-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .version-info {
+            flex: 1;
+        }
+
+        .version-id {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .version-date {
+            font-size: 0.9em;
+            color: #ccc;
+            opacity: 0.8;
+        }
+
+        /* Botón cuadrado para la versión más reciente */
+        .version-button {
+            width: 40px;
+            height: 40px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: transparent;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            margin-left: 10px;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4em;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            z-index: 2;
+        }
+
+        .version-item:first-child.selected .version-button {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .version-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('media_files/square_button.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+            transition: all 0.3s ease;
+            border-radius: 0;
+        }
+
+        .version-button:hover::before {
+            background-image: url('media_files/square_button_highlighted.png');
+        }
+
+        .version-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .version-button:active {
+            transform: translateY(0);
+        }
+
+        /* Modal de selección */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: rgba(40, 40, 40, 0.95);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            padding: 30px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+            border-radius: 0;
+        }
+
+        .modal-title {
+            color: #fff;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 15px;
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .modal-button {
+            width: 150px;
+            height: 150px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: transparent;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .modal-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('media_files/square_button.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+            transition: all 0.3s ease;
+            border-radius: 0;
+        }
+
+        .modal-button:hover::before {
+            background-image: url('media_files/square_button_highlighted.png');
+            transform: scale(1.05);
+        }
+
+        .modal-button:hover {
+            transform: translateY(-5px);
+        }
+
+        .modal-button:active {
+            transform: translateY(0);
+        }
+
+        .modal-button img {
+            max-width: 65%;
+            max-height: 65%;
+            object-fit: contain;
+        }
+
+        .versions-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            font-size: 1.4em;
+            font-weight: bold;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 10px;
+        }
+
+        /* Estilos para Markdown - Contenido combinado */
+        .combined-content {
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+
+        .combined-content h1,
+        .combined-content h2,
+        .combined-content h3,
+        .combined-content h4,
+        .combined-content h5,
+        .combined-content h6 {
+            color: #fff;
+            margin: 15px 0 12px 0;
+            font-weight: bold;
+        }
+
+        .combined-content h1 {
+            font-size: 1.8em;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 8px;
+            margin-top: 5px;
+        }
+
+        .combined-content h2 {
+            font-size: 1.6em;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 5px;
+        }
+
+        .combined-content h3 {
+            font-size: 1.4em;
+            margin-top: 15px;
+        }
+
+        .combined-content p {
+            margin-bottom: 14px;
+            line-height: 1.7;
+        }
+
+        .combined-content ul,
+        .combined-content ol {
+            margin: 14px 0;
+            padding-left: 25px;
+        }
+
+        .combined-content li {
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+
+        .combined-content code {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #ffcc00;
+        }
+
+        .combined-content pre {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 14px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 16px 0;
+            border-left: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .combined-content pre code {
+            background: none;
+            padding: 0;
+            color: #e0e0e0;
+            font-size: 0.95em;
+        }
+
+        .combined-content blockquote {
+            border-left: 4px solid rgba(255, 255, 255, 0.3);
+            padding-left: 16px;
+            margin: 16px 0;
+            color: #ccc;
+            font-style: italic;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px 16px;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .combined-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+        }
+
+        .combined-content th,
+        .combined-content td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: left;
+        }
+
+        .combined-content th {
+            background: rgba(255, 255, 255, 0.1);
+            font-weight: bold;
+        }
+
+        .combined-content a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .combined-content a:hover {
+            text-decoration: underline;
+        }
+
+        /* Separador sutil entre contenido de archivos */
+        .content-separator {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 20px 0;
+            border: none;
+        }
+
+        .loading {
+            text-align: center;
+            color: #ccc;
+            font-style: italic;
+            padding: 20px 0;
+        }
+
+        .error {
+            color: #ff6b6b;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Scrollbar personalizado */
+        .sidebar::-webkit-scrollbar,
+        .main-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .sidebar::-webkit-scrollbar-track,
+        .main-content::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar::-webkit-scrollbar-thumb,
+        .main-content::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .sidebar::-webkit-scrollbar-thumb:hover,
+        .main-content::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content-container {
+                flex-direction: column;
+                gap: 2vh;
+            }
+            
+            .sidebar {
+                width: 90%;
+                height: 25vh;
+            }
+            
+            .main-content {
+                width: 90%;
+                height: 40vh;
+                padding: 20px;
+            }
+            
+            .version-button {
+                width: 35px;
+                height: 35px;
+                font-size: 1.2em;
+            }
+
+            .modal-buttons {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .modal-button {
+                width: 120px;
+                height: 120px;
+            }
+
+            .back-button {
+                width: 45px;
+                height: 45px;
+                font-size: 1.6em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fondo de video -->
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="media_files/animated_blurry_chimney.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <!-- Logo en la parte superior -->
+    <div class="header">
+        <!-- Botón de regreso a la izquierda -->
+        <button class="back-button" onclick="regresarAlInicio()">↩</button>
+        
+        <div class="logo">
+            <img src="media_files/logo_mc2.png" alt="Logo del Juego">
+        </div>
+    </div>
+
+    <!-- Contenedor de recuadros de texto -->
+    <div class="content-container">
+        <!-- Recuadro delgado vertical (izquierda) -->
+        <div class="sidebar">
+            <div class="versions-title">VERSIONES</div>
+            <div id="versions-list">
+                <!-- Las versiones se cargarán aquí dinámicamente -->
+            </div>
+        </div>
+
+        <!-- Recuadro grande (centro) -->
+        <div class="main-content" id="version-details">
+            <div class="loading">Selecciona una versión para ver los detalles</div>
+        </div>
+    </div>
+
+    <!-- Modal de selección -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <div class="modal-title" id="modalTitle">v0.0.0</div>
+            <div class="modal-buttons">
+                <button class="modal-button" onclick="descargarModrinth()">
+                    <img src="media_files/Modrinth_Logo.png" alt="Modrinth">
+                </button>
+                <button class="modal-button" onclick="descargarSKLauncher()">
+                    <img src="media_files/SKLauncher_Logo.png" alt="SKLauncher">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // URLs base de GitHub
+        const GITHUB_BASE_URL = 'https://raw.githubusercontent.com/Kart0/MINECRAFT-2/main';
+        const META_JSON_URL = 'https://raw.githubusercontent.com/Kart0/MINECRAFT-2/main/meta.json';
+
+        // Variables globales
+        let currentVersionId = '';
+        let currentVersionData = null;
+
+        // Configurar Marked.js para mejor renderizado
+        marked.setOptions({
+            highlight: function(code, lang) {
+                return code;
+            },
+            breaks: true,
+            gfm: true
+        });
+
+        // Función para regresar al inicio
+        function regresarAlInicio() {
+            window.location.href = 'index.html';
+        }
+
+        // Función para formatear la fecha
+        function formatDate(timestamp) {
+            const date = new Date(timestamp);
+            return date.toLocaleDateString('es-ES', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric'
+            });
+        }
+
+        // Función para cargar un archivo de texto desde GitHub
+        async function loadFileFromGitHub(versionId, fileName) {
+            try {
+                const url = `${GITHUB_BASE_URL}/versions/${versionId}/${fileName}`;
+                const response = await fetch(url);
+                
+                if (!response.ok) {
+                    return null;
+                }
+                
+                return await response.text();
+            } catch (error) {
+                console.error(`Error cargando ${fileName} para versión ${versionId}:`, error);
+                return null;
+            }
+        }
+
+        // Función para mostrar el modal de selección
+        function mostrarModalDescarga(versionId) {
+            currentVersionId = versionId;
+            
+            // Buscar los datos de la versión actual
+            const versionData = window.versionsData.find(v => v.id === versionId);
+            currentVersionData = versionData;
+            
+            const modalTitle = document.getElementById('modalTitle');
+            modalTitle.textContent = `v${versionId}`;
+            
+            const modalOverlay = document.getElementById('modalOverlay');
+            modalOverlay.classList.add('active');
+        }
+
+        // Función para cerrar el modal
+        function cerrarModal() {
+            const modalOverlay = document.getElementById('modalOverlay');
+            modalOverlay.classList.remove('active');
+        }
+
+        // Función para descargar Modrinth
+        function descargarModrinth() {
+            if (currentVersionData && currentVersionData.promotions && currentVersionData.promotions.downloads) {
+                const modrinthUrl = currentVersionData.promotions.downloads.modrinth;
+                if (modrinthUrl) {
+                    window.open(modrinthUrl, '_blank');
+                } else {
+                    console.log('No hay enlace de Modrinth disponible para esta versión');
+                }
+            } else {
+                console.log('No hay datos de descarga disponibles para esta versión');
+            }
+            cerrarModal();
+        }
+
+        // Función para descargar SKLauncher
+        function descargarSKLauncher() {
+            if (currentVersionData && currentVersionData.promotions && currentVersionData.promotions.downloads) {
+                const genericUrl = currentVersionData.promotions.downloads.generic;
+                if (genericUrl) {
+                    window.open(genericUrl, '_blank');
+                } else {
+                    console.log('No hay enlace genérico disponible para esta versión');
+                }
+            } else {
+                console.log('No hay datos de descarga disponibles para esta versión');
+            }
+            cerrarModal();
+        }
+
+        // Función para mostrar los detalles de una versión
+        async function showVersionDetails(versionId) {
+            const detailsContainer = document.getElementById('version-details');
+            detailsContainer.innerHTML = '<div class="loading">Cargando detalles...</div>';
+
+            try {
+                // Cargar ambos archivos
+                const [changelogContent, clientContent] = await Promise.all([
+                    loadFileFromGitHub(versionId, 'changelog.txt'),
+                    loadFileFromGitHub(versionId, 'client.txt')
+                ]);
+
+                let htmlContent = '<div class="combined-content">';
+
+                // Combinar el contenido de ambos archivos
+                if (changelogContent) {
+                    htmlContent += marked.parse(changelogContent);
+                }
+
+                // Agregar separador sutil si ambos archivos existen
+                if (changelogContent && clientContent) {
+                    htmlContent += '<hr class="content-separator">';
+                }
+
+                if (clientContent) {
+                    htmlContent += marked.parse(clientContent);
+                }
+
+                htmlContent += '</div>';
+
+                // Si no hay ningún archivo, mostrar mensaje
+                if (!changelogContent && !clientContent) {
+                    htmlContent = '<div class="error">No se encontraron archivos para esta versión</div>';
+                }
+
+                detailsContainer.innerHTML = htmlContent;
+
+            } catch (error) {
+                console.error('Error cargando detalles de la versión:', error);
+                detailsContainer.innerHTML = '<div class="error">Error cargando los detalles de la versión</div>';
+            }
+        }
+
+        // Función para cargar las versiones desde el JSON
+        async function loadVersions() {
+            try {
+                // Agregar timestamp para evitar cache
+                const response = await fetch(META_JSON_URL + '?t=' + new Date().getTime());
+                const data = await response.json();
+                
+                // Guardar los datos de versiones globalmente
+                window.versionsData = data.versions;
+                
+                const versionsList = document.getElementById('versions-list');
+                versionsList.innerHTML = '';
+                
+                // Ordenar versiones por fecha (más reciente primero)
+                const sortedVersions = data.versions.sort((a, b) => b.releasedAt - a.releasedAt);
+                
+                sortedVersions.forEach((version, index) => {
+                    const versionElement = document.createElement('div');
+                    versionElement.className = 'version-item';
+                    if (index === 0) {
+                        versionElement.classList.add('selected');
+                        // Cargar detalles de la primera versión automáticamente
+                        showVersionDetails(version.id);
+                    }
+                    
+                    versionElement.innerHTML = `
+                        <div class="version-info">
+                            <div class="version-id">${version.id}</div>
+                            <div class="version-date">${formatDate(version.releasedAt)}</div>
+                        </div>
+                        ${index === 0 ? '<button class="version-button" onclick="mostrarModalDescarga(\'' + version.id + '\')">⤓</button>' : ''}
+                    `;
+                    
+                    versionElement.addEventListener('click', () => {
+                        // Remover selección de todos los items
+                        document.querySelectorAll('.version-item').forEach(item => {
+                            item.classList.remove('selected');
+                        });
+                        // Agregar selección al item clickeado
+                        versionElement.classList.add('selected');
+                        // Cargar detalles de la versión seleccionada
+                        showVersionDetails(version.id);
+                    });
+                    
+                    versionsList.appendChild(versionElement);
+                });
+                
+            } catch (error) {
+                console.error('Error cargando las versiones:', error);
+                document.getElementById('versions-list').innerHTML = 
+                    '<div class="error">Error cargando versiones</div>';
+            }
+        }
+
+        // Asegurar que el video se reproduzca correctamente
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('video');
+            video.play().catch(function(error) {
+                console.log('Error al reproducir el video automáticamente:', error);
+            });
+            
+            // Cargar las versiones cuando la página esté lista
+            loadVersions();
+
+            // Cerrar modal al hacer click fuera del contenido
+            document.getElementById('modalOverlay').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    cerrarModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

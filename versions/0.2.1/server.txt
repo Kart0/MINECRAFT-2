@@ -1,0 +1,19 @@
+### **Server**
+
+Los detalles marinos han sido expandidos y las "Ancient Cities" actualizadas, también nuevas pequeñas estructuras apareceran por el mapa (si, más de las que ya hay).
+
+*Info en detalle*▽
+- Unnamed Sea (añadido)
+- Luki's Ancient Cities (añadido)
+- MinGen (mod añadido)
+- Lista de jugadores actualizada
+- Flatulencias ajustadas y nerfeadas*
+
+
+
+***Nota del desarrollador***
+
+*Estoy explorando la idea de hacer las aldeas más pequeñas para evitar perdida de rendimiento, a veces menos es más, todo se verá en esta versión de prueba*
+
+
+**-karto**

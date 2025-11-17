@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizador del Juego</title>
+    <style>
+        @font-face {
+            font-family: 'Minecraft';
+            src: url('media_files/MinecraftRegular-Bmg3.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'Minecraft';
+            src: url('media_files/MinecraftBold-nMK1.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'Minecraft';
+            src: url('media_files/MinecraftItalic-R8Mo.otf') format('opentype');
+            font-weight: normal;
+            font-style: italic;
+        }
+        
+        @font-face {
+            font-family: 'Minecraft';
+            src: url('media_files/MinecraftBoldItalic-1y1e.otf') format('opentype');
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Minecraft', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .video-background video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: -1;
+        }
+
+        .header {
+            width: 100%;
+            padding: 4vh 2vw 2vh 2vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .logo {
+            height: 25vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            max-width: 85vw;
+            object-fit: contain;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 2vh 2vw;
+            z-index: 1;
+            margin-top: 2vh;
+        }
+
+        .title {
+            color: white;
+            font-size: 3.5vw;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+            font-weight: bold;
+            letter-spacing: 0.3vw;
+            margin-bottom: 2vh;
+            text-align: center;
+            text-transform: uppercase;
+            margin-top: 8vh;
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4vw;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 8vh;
+        }
+
+        .btn {
+            /* Aumentado 1/4 más grande - Ratio 20:3 */
+            width: 500px;  /* De 400px a 500px (+25%) */
+            height: 75px;  /* De 60px a 75px (+25%) */
+            font-size: 2.25em; /* De 1.8em a 2.25em (+25%) */
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            letter-spacing: 1px;
+            border-radius: 0;
+            background: transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('media_files/button.png');
+            background-size: auto 100%;
+            background-position: center;
+            background-repeat: repeat-x;
+            z-index: -1;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover::before {
+            background-image: url('media_files/button_highlighted.png');
+            background-size: auto 100%;
+            background-repeat: repeat-x;
+            transform: scale(1);
+        }
+
+        .btn:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .btn:active {
+            transform: translateY(-2px);
+            transition: transform 0.1s ease;
+        }
+
+        .btn:hover::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive para pantallas grandes */
+        @media (min-width: 1600px) {
+            .title {
+                font-size: 3vw;
+            }
+            
+            .btn {
+                width: 560px;  /* Aumentado proporcionalmente */
+                height: 84px;   /* Aumentado proporcionalmente */
+                font-size: 2.5em; /* Aumentado proporcionalmente */
+            }
+            
+            .buttons-container {
+                margin-top: 9vh;
+            }
+        }
+
+        /* Responsive para pantallas medianas */
+        @media (max-width: 1200px) {
+            .title {
+                font-size: 4vw;
+                margin-top: 6vh;
+            }
+            
+            .btn {
+                width: 440px;  /* Aumentado proporcionalmente */
+                height: 66px;   /* Aumentado proporcionalmente */
+                font-size: 2em; /* Aumentado proporcionalmente */
+            }
+            
+            .buttons-container {
+                margin-top: 7vh;
+            }
+        }
+
+        /* Responsive para tablets */
+        @media (max-width: 768px) {
+            .main-content {
+                margin-top: 1vh;
+            }
+            
+            .title {
+                font-size: 5vw;
+                margin-top: 4vh;
+                margin-bottom: 1vh;
+            }
+            
+            .buttons-container {
+                gap: 3vw;
+                margin-top: 6vh;
+            }
+            
+            .btn {
+                width: 375px;  /* Aumentado proporcionalmente */
+                height: 56.25px; /* Aumentado proporcionalmente */
+                font-size: 1.75em; /* Aumentado proporcionalmente */
+            }
+            
+            .logo {
+                height: 20vh;
+            }
+            
+            .header {
+                padding: 3vh 2vw 1vh 2vw;
+            }
+        }
+
+        /* Responsive para móviles */
+        @media (max-width: 600px) {
+            .buttons-container {
+                flex-direction: column;
+                gap: 3vh;
+                margin-top: 5vh;
+            }
+            
+            .btn {
+                width: 400px;  /* Aumentado proporcionalmente */
+                height: 60px;   /* Aumentado proporcionalmente */
+                font-size: 1.875em; /* Aumentado proporcionalmente */
+            }
+            
+            .logo {
+                height: 16vh;
+            }
+            
+            .title {
+                font-size: 6vw;
+                margin-top: 3vh;
+            }
+            
+            .main-content {
+                margin-top: 0;
+            }
+            
+            .header {
+                padding: 2vh 2vw 1vh 2vw;
+            }
+        }
+
+        /* Responsive para móviles pequeños */
+        @media (max-width: 480px) {
+            .btn {
+                width: 350px;  /* Aumentado proporcionalmente */
+                height: 52.5px; /* Aumentado proporcionalmente */
+                font-size: 1.625em; /* Aumentado proporcionalmente */
+            }
+            
+            .logo {
+                height: 14vh;
+            }
+            
+            .title {
+                font-size: 7vw;
+                margin-top: 2vh;
+            }
+            
+            .buttons-container {
+                margin-top: 4vh;
+            }
+        }
+
+        /* Responsive para móviles muy pequeños */
+        @media (max-width: 320px) {
+            .btn {
+                width: 312px;  /* Aumentado proporcionalmente */
+                height: 46.8px; /* Aumentado proporcionalmente */
+                font-size: 1.5em; /* Aumentado proporcionalmente */
+            }
+            
+            .logo {
+                height: 12vh;
+            }
+            
+            .title {
+                font-size: 8vw;
+            }
+            
+            .buttons-container {
+                margin-top: 3vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fondo de video -->
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="media_files/animated_chimney.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <!-- Logo en la parte superior -->
+    <div class="header">
+        <div class="logo">
+            <img src="media_files/logo_mc2.png" alt="Logo del Juego">
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+        <!-- Texto ACTUALIZADOR -->
+        <div class="title">ACTUALIZADOR</div>
+        
+        <!-- Botones 1/4 más grandes -->
+        <div class="buttons-container">
+            <button class="btn" onclick="descargarCliente()">Cliente</button>
+            <button class="btn" onclick="descargarServer()">Server</button>
+        </div>
+    </div>
+
+    <script>
+        function descargarCliente() {
+            // Redirige directamente al archivo client.html
+            window.location.href = 'client.html';
+        }
+
+        function descargarServer() {
+            // Redirige directamente al archivo server.html
+            window.location.href = 'server.html';
+        }
+
+        // Asegurar que el video se reproduzca correctamente
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('video');
+            video.play().catch(function(error) {
+                console.log('Error al reproducir el video automáticamente:', error);
+            });
+        });
+    </script>
+</body>
+</html>
