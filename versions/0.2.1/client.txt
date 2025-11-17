@@ -1,0 +1,21 @@
+### **Cliente**
+
+Datos adicionales han sido añadidos/actualizados/ajustados para que no hayan errores gráficos presentes durante el gameplay, tambien se han ajustaods los menus dándoles una apariencia más ligada a la experiencia final, la parte estética del menu de 'Graficos' aún esta en beta pero es 100% funcional.
+
+*Info en detalle*▽
+- Añadidos datos de P.F.T. (errores visuales corregidos)
+- Barra de entidades ajustada
+- Jade y DnT traducidos
+- Resourcepacks actualizados
+- Mods redundantes de optimización removidos
+- Menus ajustados y rediseñados, "Graficos" reemplazado por "Chunks"
+- Renderizado de chunks y Teclas personalizadas reiniciadas*
+
+
+
+***Nota del desarrollador***
+
+*Estoy explorando la idea de hacer las aldeas más pequeñas para evitar perdida de rendimiento, a veces menos es más, todo se verá en esta versión de prueba*
+
+
+**-karto**

@@ -1,0 +1,3 @@
+## **CAMBIOS HECHOS V0.2.1**
+
+Este es un pequeño parche el cuál trae la base para tener actualizaciones al alcance de 1 solo click, las futuras actualizaciones solo necesitaran la descarga de 1 archivo, el cual dependerá de la versión que uses (Modrinth o SKLauncher)
