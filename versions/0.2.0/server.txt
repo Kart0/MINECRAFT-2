@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ### **Server**
 
 ¡Los animales ahora serán más únicos! Muchas variantes empezarán a aparecer por todo el lugar, detalles de "calidad de gameplay" han sido añadidos para mejorar la estabilidad y cantidad de contenido que puede generar el servidor.
@@ -6,3 +7,13 @@
 - Pause Server When Empty (añadido)
 - fleeing animals (añadido)
 - living things 
+=======
+### **Server**
+
+¡Los animales ahora serán más únicos! Muchas variantes empezarán a aparecer por todo el lugar, detalles de "calidad de gameplay" han sido añadidos para mejorar la estabilidad y cantidad de contenido que puede generar el servidor.
+
+*Info en detalle*▽
+- Pause Server When Empty (añadido)
+- fleeing animals (añadido)
+- living things 
+>>>>>>> ba99412e3d192a45e072e11bbcd934b8ee0b0ec2

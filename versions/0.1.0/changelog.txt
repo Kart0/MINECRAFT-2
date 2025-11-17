@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## **BETA inicial de MC2**
 
 ### **MODS**
@@ -20,4 +21,28 @@ Puedes entrar a revisar los controles en el apartado de CONFIGURACIÓN pero para
 *Espero poder tener el tiempo necesario para poder revisar y lanzar parches para corregir los errores que aparezcan durante éste primer parche y fase de prueba, quisiera tener la máxima retroalimentación posible de parte de ustedes*
 
 
+=======
+## **BETA inicial de MC2**
+
+### **MODS**
+
+Hay más de 300 mods instalados en este modpack que harán que tu forma de jugar Minecraft no vuelva a ser la misma
+
+### **OBJETIVO**
+
+El objetivo de ésta versión es probar todas las funciones disponibles y detectar todo tipo de errores para poder reportarlos y asi poder corregirlos, espero que puedan disfrutar la experiencia en el servidor tanto como el costo que tuvo aprender a hacer todo esto
+
+
+### **TECLADO**
+
+Puedes entrar a revisar los controles en el apartado de CONFIGURACIÓN pero para ser revisados solamente, no se recomienda cambiar ningún valor para asi evitar errores e incompatibilidades entre mods, ya todo ha sido previamente calibrado
+
+
+
+***Nota del desarrollador***
+
+*Espero poder tener el tiempo necesario para poder revisar y lanzar parches para corregir los errores que aparezcan durante éste primer parche y fase de prueba, quisiera tener la máxima retroalimentación posible de parte de ustedes*
+
+
+>>>>>>> ba99412e3d192a45e072e11bbcd934b8ee0b0ec2
 **-karto**

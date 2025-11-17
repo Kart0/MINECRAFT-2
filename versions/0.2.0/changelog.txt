@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 ## **CAMBIOS HECHOS V0.2.0**
 
 Bienvenidos a la versión de CALIDAD DE VIDA/GAMEPLAY para la *EXPERIENCIA DEFINITIVA*
+=======
+## **CAMBIOS HECHOS V0.2.0**
+
+Bienvenidos a la versión de CALIDAD DE VIDA/GAMEPLAY para la *EXPERIENCIA DEFINITIVA*
+>>>>>>> ba99412e3d192a45e072e11bbcd934b8ee0b0ec2
