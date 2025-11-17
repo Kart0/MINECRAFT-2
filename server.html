@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cliente - Actualizador del Juego</title>
+    <title>Servidor - Actualizador del Juego</title>
     <!-- Incluir Marked.js para soporte Markdown -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
@@ -308,7 +308,7 @@
         }
 
         .modal-content {
-            background: rgba(40, 40, 40, 0.95); /* Gris oscuro en lugar de negro */
+            background: rgba(40, 40, 40, 0.95);
             border: 3px solid rgba(255, 255, 255, 0.3);
             padding: 30px;
             text-align: center;
@@ -380,8 +380,8 @@
         }
 
         .modal-button img {
-            max-width: 65%; /* Iconos más pequeños (de 80% a 65%) */
-            max-height: 65%; /* Iconos más pequeños (de 80% a 65%) */
+            max-width: 65%;
+            max-height: 65%;
             object-fit: contain;
         }
 
@@ -507,14 +507,6 @@
 
         .combined-content a:hover {
             text-decoration: underline;
-        }
-
-        /* Separador sutil entre contenido de archivos */
-        .content-separator {
-            height: 1px;
-            background: rgba(255, 255, 255, 0.1);
-            margin: 20px 0;
-            border: none;
         }
 
         .loading {
@@ -647,13 +639,13 @@
     </div>
 
     <script>
-        // URLs base de GitHub
+        // URLs base de GitHub - TODO desde GitHub
         const GITHUB_BASE_URL = 'https://raw.githubusercontent.com/Kart0/MINECRAFT-2/main';
         const META_JSON_URL = 'https://raw.githubusercontent.com/Kart0/MINECRAFT-2/main/meta.json';
 
         // Variables globales
         let currentVersionId = '';
-        let currentVersionData = null;
+        let currentDownloadUrls = null;
 
         // Función para volver atrás
         function goBack() {
@@ -696,13 +688,31 @@
             }
         }
 
+        // Función para cargar el JSON de enlaces de descarga del servidor desde GitHub
+        async function loadServerDownloadUrls() {
+            try {
+                const url = `${GITHUB_BASE_URL}/versions/server-modpack-download-url.json`;
+                const response = await fetch(url);
+                
+                if (!response.ok) {
+                    return null;
+                }
+                
+                return await response.json();
+            } catch (error) {
+                console.error('Error cargando server-modpack-download-url.json:', error);
+                return null;
+            }
+        }
+
         // Función para mostrar el modal de selección
-        function mostrarModalDescarga(versionId) {
+        async function mostrarModalDescarga(versionId) {
             currentVersionId = versionId;
             
-            // Buscar los datos de la versión actual
-            const versionData = window.versionsData.find(v => v.id === versionId);
-            currentVersionData = versionData;
+            // Cargar los enlaces de descarga del servidor DESDE GITHUB
+            if (!currentDownloadUrls) {
+                currentDownloadUrls = await loadServerDownloadUrls();
+            }
             
             const modalTitle = document.getElementById('modalTitle');
             modalTitle.textContent = `v${versionId}`;
@@ -719,30 +729,22 @@
 
         // Función para descargar Modrinth
         function descargarModrinth() {
-            if (currentVersionData && currentVersionData.promotions && currentVersionData.promotions.downloads) {
-                const modrinthUrl = currentVersionData.promotions.downloads.modrinth;
-                if (modrinthUrl) {
-                    window.open(modrinthUrl, '_blank');
-                } else {
-                    console.log('No hay enlace de Modrinth disponible para esta versión');
-                }
+            if (currentDownloadUrls && currentDownloadUrls.modrinth) {
+                window.open(currentDownloadUrls.modrinth, '_blank');
             } else {
-                console.log('No hay datos de descarga disponibles para esta versión');
+                console.log('No hay enlace de Modrinth disponible');
+                alert('No hay enlace de Modrinth disponible');
             }
             cerrarModal();
         }
 
         // Función para descargar SKLauncher
         function descargarSKLauncher() {
-            if (currentVersionData && currentVersionData.promotions && currentVersionData.promotions.downloads) {
-                const genericUrl = currentVersionData.promotions.downloads.generic;
-                if (genericUrl) {
-                    window.open(genericUrl, '_blank');
-                } else {
-                    console.log('No hay enlace genérico disponible para esta versión');
-                }
+            if (currentDownloadUrls && currentDownloadUrls.sklauncher) {
+                window.open(currentDownloadUrls.sklauncher, '_blank');
             } else {
-                console.log('No hay datos de descarga disponibles para esta versión');
+                console.log('No hay enlace de SKLauncher disponible');
+                alert('No hay enlace de SKLauncher disponible');
             }
             cerrarModal();
         }
@@ -753,32 +755,19 @@
             detailsContainer.innerHTML = '<div class="loading">Cargando detalles...</div>';
 
             try {
-                // Cargar ambos archivos
-                const [changelogContent, clientContent] = await Promise.all([
-                    loadFileFromGitHub(versionId, 'changelog.txt'),
-                    loadFileFromGitHub(versionId, 'client.txt')
-                ]);
-
-                let htmlContent = '<div class="combined-content">';
-
-                // Combinar el contenido de ambos archivos
-                if (changelogContent) {
-                    htmlContent += marked.parse(changelogContent);
+                // PRIORIDAD: Primero intentar cargar server.txt
+                let content = await loadFileFromGitHub(versionId, 'server.txt');
+                
+                // Si no existe server.txt, cargar changelog.txt
+                if (!content) {
+                    content = await loadFileFromGitHub(versionId, 'changelog.txt');
                 }
 
-                // Agregar separador sutil si ambos archivos existen
-                if (changelogContent && clientContent) {
-                    htmlContent += '<hr class="content-separator">';
-                }
+                let htmlContent = '';
 
-                if (clientContent) {
-                    htmlContent += marked.parse(clientContent);
-                }
-
-                htmlContent += '</div>';
-
-                // Si no hay ningún archivo, mostrar mensaje
-                if (!changelogContent && !clientContent) {
+                if (content) {
+                    htmlContent = '<div class="combined-content">' + marked.parse(content) + '</div>';
+                } else {
                     htmlContent = '<div class="error">No se encontraron archivos para esta versión</div>';
                 }
 
@@ -790,7 +779,7 @@
             }
         }
 
-        // Función para cargar las versiones desde el JSON
+        // Función para cargar las versiones desde el JSON de GitHub
         async function loadVersions() {
             try {
                 // Agregar timestamp para evitar cache
