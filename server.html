@@ -330,13 +330,13 @@
         .modal-buttons {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 0;
             margin-top: 20px;
         }
 
         .modal-button {
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 200px;
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -522,6 +522,30 @@
             padding: 20px 0;
         }
 
+        /* Nuevos estilos para el enlace tutorial */
+        .tutorial-link {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .tutorial-link a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        .tutorial-link a:hover {
+            color: #66BB6A;
+            text-decoration: underline;
+            transform: translateY(-2px);
+        }
+
         /* Scrollbar personalizado */
         .sidebar::-webkit-scrollbar,
         .main-content::-webkit-scrollbar {
@@ -573,8 +597,8 @@
             }
 
             .modal-button {
-                width: 120px;
-                height: 120px;
+                width: 150px;
+                height: 150px;
             }
 
             .back-button {
@@ -623,7 +647,7 @@
     <!-- Botón de volver atrás -->
     <button class="back-button" onclick="goBack()">↩</button>
 
-    <!-- Modal de selección -->
+    <!-- Modal de selección MODIFICADO -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-content">
             <div class="modal-title" id="modalTitle">v0.0.0</div>
@@ -631,15 +655,16 @@
                 <button class="modal-button" onclick="descargarModrinth()">
                     <img src="media_files/Modrinth_Logo.png" alt="Modrinth">
                 </button>
-                <button class="modal-button" onclick="descargarSKLauncher()">
-                    <img src="media_files/SKLauncher_Logo.png" alt="SKLauncher">
-                </button>
+            </div>
+            <!-- Nuevo enlace tutorial -->
+            <div class="tutorial-link" id="tutorialLinkContainer" style="display: none;">
+                <a href="#" id="tutorialLink" target="_blank">Cómo instalar el Modpack</a>
             </div>
         </div>
     </div>
 
     <script>
-        // URLs base de GitHub - TODO desde GitHub
+        // URLs base de GitHub
         const GITHUB_BASE_URL = 'https://raw.githubusercontent.com/Kart0/MINECRAFT-2/main';
         const META_JSON_URL = 'https://raw.githubusercontent.com/Kart0/MINECRAFT-2/main/meta.json';
 
@@ -705,7 +730,7 @@
             }
         }
 
-        // Función para mostrar el modal de selección
+        // Función para mostrar el modal de selección MODIFICADA
         async function mostrarModalDescarga(versionId) {
             currentVersionId = versionId;
             
@@ -717,6 +742,17 @@
             const modalTitle = document.getElementById('modalTitle');
             modalTitle.textContent = `v${versionId}`;
             
+            // Configurar el enlace tutorial si existe
+            const tutorialLinkContainer = document.getElementById('tutorialLinkContainer');
+            const tutorialLink = document.getElementById('tutorialLink');
+            
+            if (currentDownloadUrls && currentDownloadUrls.tutorial) {
+                tutorialLink.href = currentDownloadUrls.tutorial;
+                tutorialLinkContainer.style.display = 'block';
+            } else {
+                tutorialLinkContainer.style.display = 'none';
+            }
+            
             const modalOverlay = document.getElementById('modalOverlay');
             modalOverlay.classList.add('active');
         }
@@ -727,24 +763,13 @@
             modalOverlay.classList.remove('active');
         }
 
-        // Función para descargar Modrinth
+        // Función para descargar Modrinth (ÚNICO BOTÓN)
         function descargarModrinth() {
             if (currentDownloadUrls && currentDownloadUrls.modrinth) {
                 window.open(currentDownloadUrls.modrinth, '_blank');
             } else {
                 console.log('No hay enlace de Modrinth disponible');
                 alert('No hay enlace de Modrinth disponible');
-            }
-            cerrarModal();
-        }
-
-        // Función para descargar SKLauncher
-        function descargarSKLauncher() {
-            if (currentDownloadUrls && currentDownloadUrls.sklauncher) {
-                window.open(currentDownloadUrls.sklauncher, '_blank');
-            } else {
-                console.log('No hay enlace de SKLauncher disponible');
-                alert('No hay enlace de SKLauncher disponible');
             }
             cerrarModal();
         }
