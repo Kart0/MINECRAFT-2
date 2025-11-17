@@ -3,20 +3,9 @@
     "hotfixesFormat": null,
     "versions": [
         {
-            "id": "0.2.2",
-            "releasedAt": 1763251200000,
-            "updateType": "minor",
-            "promotions": {
-                "downloads": {
-                    "modrinth": "https://www.mediafire.com/file/yp4begok1ynmt4n/MC2_BETA_-_lite_-MR-_v0.2.1.mrpack/file",
-                    "generic": "https://www.mediafire.com/file/5h82e9cdzwb7zkw/MC2_BETA_-_lite_-SK-_v0.2.1.mrpack/file"
-                }
-            }
-        },
-        {
-            "id": "0.2.1",
-            "releasedAt": 1763164800000,
-            "updateType": "minor",
+            "id": "0.1.0",
+            "releasedAt": 1762214400000,
+            "updateType": "",
             "promotions": {
             }
         },
@@ -28,11 +17,22 @@
             }
         },
         {
-            "id": "0.1.0",
-            "releasedAt": 1762214400000,
-            "updateType": "",
+            "id": "0.2.1",
+            "releasedAt": 1763164800000,
+            "updateType": "minor",
             "promotions": {
             }
-        }
+        },
+        {
+            "id": "0.2.2",
+            "releasedAt": 1763251200000,
+            "updateType": "minor",
+            "promotions": {
+                "downloads": {
+                    "modrinth": "https://www.mediafire.com/file/yp4begok1ynmt4n/MC2_BETA_-_lite_-MR-_v0.2.1.mrpack/file",
+                    "generic": "https://www.mediafire.com/file/5h82e9cdzwb7zkw/MC2_BETA_-_lite_-SK-_v0.2.1.mrpack/file"
+                }
+            }
+        }                    
     ]
 }
