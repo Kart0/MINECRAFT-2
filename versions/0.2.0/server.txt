@@ -6,12 +6,4 @@
 - Pause Server When Empty (añadido)
 - fleeing animals (añadido)
 - living things 
-=======
-### **Server**
 
-¡Los animales ahora serán más únicos! Muchas variantes empezarán a aparecer por todo el lugar, detalles de "calidad de gameplay" han sido añadidos para mejorar la estabilidad y cantidad de contenido que puede generar el servidor.
-
-*Info en detalle*▽
-- Pause Server When Empty (añadido)
-- fleeing animals (añadido)
-- living things 
