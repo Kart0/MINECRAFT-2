@@ -308,7 +308,7 @@
         }
 
         .modal-content {
-            background: rgba(40, 40, 40, 0.95); /* Gris oscuro en lugar de negro */
+            background: rgba(40, 40, 40, 0.95);
             border: 3px solid rgba(255, 255, 255, 0.3);
             padding: 30px;
             text-align: center;
@@ -380,8 +380,8 @@
         }
 
         .modal-button img {
-            max-width: 65%; /* Iconos más pequeños (de 80% a 65%) */
-            max-height: 65%; /* Iconos más pequeños (de 80% a 65%) */
+            max-width: 65%;
+            max-height: 65%;
             object-fit: contain;
         }
 
@@ -396,58 +396,58 @@
             padding-bottom: 10px;
         }
 
-        /* Estilos para Markdown - Contenido combinado */
-        .combined-content {
+        /* Estilos para Markdown - Contenido del changelog */
+        .changelog-content {
             line-height: 1.6;
             color: #e0e0e0;
         }
 
-        .combined-content h1,
-        .combined-content h2,
-        .combined-content h3,
-        .combined-content h4,
-        .combined-content h5,
-        .combined-content h6 {
+        .changelog-content h1,
+        .changelog-content h2,
+        .changelog-content h3,
+        .changelog-content h4,
+        .changelog-content h5,
+        .changelog-content h6 {
             color: #fff;
             margin: 15px 0 12px 0;
             font-weight: bold;
         }
 
-        .combined-content h1 {
+        .changelog-content h1 {
             font-size: 1.8em;
             border-bottom: 2px solid rgba(255, 255, 255, 0.3);
             padding-bottom: 8px;
             margin-top: 5px;
         }
 
-        .combined-content h2 {
+        .changelog-content h2 {
             font-size: 1.6em;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             padding-bottom: 5px;
         }
 
-        .combined-content h3 {
+        .changelog-content h3 {
             font-size: 1.4em;
             margin-top: 15px;
         }
 
-        .combined-content p {
+        .changelog-content p {
             margin-bottom: 14px;
             line-height: 1.7;
         }
 
-        .combined-content ul,
-        .combined-content ol {
+        .changelog-content ul,
+        .changelog-content ol {
             margin: 14px 0;
             padding-left: 25px;
         }
 
-        .combined-content li {
+        .changelog-content li {
             margin-bottom: 6px;
             line-height: 1.5;
         }
 
-        .combined-content code {
+        .changelog-content code {
             background: rgba(255, 255, 255, 0.1);
             padding: 2px 6px;
             border-radius: 3px;
@@ -455,7 +455,7 @@
             color: #ffcc00;
         }
 
-        .combined-content pre {
+        .changelog-content pre {
             background: rgba(0, 0, 0, 0.5);
             padding: 14px;
             border-radius: 5px;
@@ -464,14 +464,14 @@
             border-left: 3px solid rgba(255, 255, 255, 0.2);
         }
 
-        .combined-content pre code {
+        .changelog-content pre code {
             background: none;
             padding: 0;
             color: #e0e0e0;
             font-size: 0.95em;
         }
 
-        .combined-content blockquote {
+        .changelog-content blockquote {
             border-left: 4px solid rgba(255, 255, 255, 0.3);
             padding-left: 16px;
             margin: 16px 0;
@@ -482,39 +482,31 @@
             border-radius: 0 5px 5px 0;
         }
 
-        .combined-content table {
+        .changelog-content table {
             width: 100%;
             border-collapse: collapse;
             margin: 16px 0;
         }
 
-        .combined-content th,
-        .combined-content td {
+        .changelog-content th,
+        .changelog-content td {
             padding: 10px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             text-align: left;
         }
 
-        .combined-content th {
+        .changelog-content th {
             background: rgba(255, 255, 255, 0.1);
             font-weight: bold;
         }
 
-        .combined-content a {
+        .changelog-content a {
             color: #4CAF50;
             text-decoration: none;
         }
 
-        .combined-content a:hover {
+        .changelog-content a:hover {
             text-decoration: underline;
-        }
-
-        /* Separador sutil entre contenido de archivos */
-        .content-separator {
-            height: 1px;
-            background: rgba(255, 255, 255, 0.1);
-            margin: 20px 0;
-            border: none;
         }
 
         .loading {
@@ -679,10 +671,10 @@
             });
         }
 
-        // Función para cargar un archivo de texto desde GitHub
-        async function loadFileFromGitHub(versionId, fileName) {
+        // Función para cargar el archivo changelog desde GitHub
+        async function loadChangelogFromGitHub(versionId) {
             try {
-                const url = `${GITHUB_BASE_URL}/versions/${versionId}/${fileName}`;
+                const url = `${GITHUB_BASE_URL}/versions/${versionId}/changelog.txt`;
                 const response = await fetch(url);
                 
                 if (!response.ok) {
@@ -691,7 +683,7 @@
                 
                 return await response.text();
             } catch (error) {
-                console.error(`Error cargando ${fileName} para versión ${versionId}:`, error);
+                console.error(`Error cargando changelog para versión ${versionId}:`, error);
                 return null;
             }
         }
@@ -747,46 +739,29 @@
             cerrarModal();
         }
 
-        // Función para mostrar los detalles de una versión
+        // Función para mostrar los detalles de una versión (solo changelog)
         async function showVersionDetails(versionId) {
             const detailsContainer = document.getElementById('version-details');
-            detailsContainer.innerHTML = '<div class="loading">Cargando detalles...</div>';
+            detailsContainer.innerHTML = '<div class="loading">Cargando changelog...</div>';
 
             try {
-                // Cargar ambos archivos
-                const [changelogContent, clientContent] = await Promise.all([
-                    loadFileFromGitHub(versionId, 'changelog.txt'),
-                    loadFileFromGitHub(versionId, 'client.txt')
-                ]);
+                // Cargar solo el archivo changelog
+                const changelogContent = await loadChangelogFromGitHub(versionId);
 
-                let htmlContent = '<div class="combined-content">';
-
-                // Combinar el contenido de ambos archivos
                 if (changelogContent) {
-                    htmlContent += marked.parse(changelogContent);
+                    const htmlContent = `
+                        <div class="changelog-content">
+                            ${marked.parse(changelogContent)}
+                        </div>
+                    `;
+                    detailsContainer.innerHTML = htmlContent;
+                } else {
+                    detailsContainer.innerHTML = '<div class="error">No se encontró el changelog para esta versión</div>';
                 }
-
-                // Agregar separador sutil si ambos archivos existen
-                if (changelogContent && clientContent) {
-                    htmlContent += '<hr class="content-separator">';
-                }
-
-                if (clientContent) {
-                    htmlContent += marked.parse(clientContent);
-                }
-
-                htmlContent += '</div>';
-
-                // Si no hay ningún archivo, mostrar mensaje
-                if (!changelogContent && !clientContent) {
-                    htmlContent = '<div class="error">No se encontraron archivos para esta versión</div>';
-                }
-
-                detailsContainer.innerHTML = htmlContent;
 
             } catch (error) {
                 console.error('Error cargando detalles de la versión:', error);
-                detailsContainer.innerHTML = '<div class="error">Error cargando los detalles de la versión</div>';
+                detailsContainer.innerHTML = '<div class="error">Error cargando el changelog de la versión</div>';
             }
         }
 
