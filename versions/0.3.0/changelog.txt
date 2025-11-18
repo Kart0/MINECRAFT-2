@@ -1,0 +1,23 @@
+## **CAMBIOS HECHOS V0.3.0**
+
+¡Bienvenidos a la actualización que dará mas variedad al mundo! Una versión mayor que entrega más cambios de calidad de vida estéticos y arreglos de mecánicas redundantes en el servidor. Esta será la versión base para recibir futuras actualizaciones debido a todo eso se hizo el upgrade de nomenclatura.
+
+
+*Info en detalle*▽
+
+- Modpack-checker añadido (cliente y server)
+- Sodium extra y Carry On (config)
+- Random Mob Sizes añadido (mod y config)
+- Death Sorter y MinGen removido (server)
+- Actualizaciones menores (Presence Footsteps, Semos Animations Lib, Fresh Seeds Bare Bones, MC2 Tweaks, ajustes en algunos menu)
+- Nice Mob Variants 'beta' reemplazado por la versión global (cliente y server)
+- Renderizado de chunks y Teclas personalizadas reiniciadas*
+
+
+
+***Nota del desarrollador***
+
+*Ésta será la versión base definitiva del MODPACK, a partir de ahora solo habrán pequeños parches que tendrás que descargar según el launcher con el que juegues, la versión base siempre estará en el DISCORD*
+
+
+**-karto**
