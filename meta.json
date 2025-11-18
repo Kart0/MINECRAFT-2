@@ -22,6 +22,17 @@
             "updateType": "minor",
             "promotions": {
             }
-        }
+        },
+		{
+			"id": "0.3.0",
+			"releasedAt": 1763428187146,
+			"updateType": "major",
+			"promotions": {
+				"downloads": {
+					"modrinth": "https://www.mediafire.com/file/l5xx1sl0i568efh/MC2_-_lite_%2528BETA%2529_-MR-.mrpack/file",
+					"generic": "https://www.mediafire.com/file/38sox9690aoy3lm/MC2_-_lite_%2528BETA%2529_-SK-.mrpack/file"
+				}
+			}
+		}
     ]
 }
