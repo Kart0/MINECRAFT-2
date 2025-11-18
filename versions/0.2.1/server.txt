@@ -8,6 +8,7 @@ Este es un pequeño parche el cuál trae la base para tener actualizaciones al a
 Los detalles marinos han sido expandidos y las "Ancient Cities" actualizadas, también nuevas pequeñas estructuras apareceran por el mapa (si, más de las que ya hay).
 
 *Info en detalle*▽
+
 - Unnamed Sea (añadido)
 - Luki's Ancient Cities (añadido)
 - MinGen (mod añadido)

@@ -7,6 +7,7 @@ Este es un pequeño parche el cuál trae la base para tener actualizaciones al a
 Datos adicionales han sido añadidos/actualizados/ajustados para que no hayan errores gráficos presentes durante el gameplay, tambien se han ajustaods los menus dándoles una apariencia más ligada a la experiencia final, la parte estética del menu de 'Graficos' aún esta en beta pero es 100% funcional.
 
 *Info en detalle*▽
+
 - Añadidos datos de P.F.T. (errores visuales corregidos)
 - Barra de entidades ajustada
 - Jade y DnT traducidos
@@ -21,6 +22,7 @@ Datos adicionales han sido añadidos/actualizados/ajustados para que no hayan er
 Los detalles marinos han sido expandidos y las "Ancient Cities" actualizadas, también nuevas pequeñas estructuras apareceran por el mapa (si, más de las que ya hay).
 
 *Info en detalle*▽
+
 - Unnamed Sea (añadido)
 - Luki's Ancient Cities (añadido)
 - MinGen (mod añadido)
