@@ -1,3 +1,8 @@
+## **CAMBIOS HECHOS V0.2.0**
+
+Bienvenidos a la versión de CALIDAD DE VIDA/GAMEPLAY para la *EXPERIENCIA DEFINITIVA*
+
+
 ### **Server**
 
 ¡Los animales ahora serán más únicos! Muchas variantes empezarán a aparecer por todo el lugar, detalles de "calidad de gameplay" han sido añadidos para mejorar la estabilidad y cantidad de contenido que puede generar el servidor.
@@ -6,4 +11,23 @@
 - Pause Server When Empty (añadido)
 - fleeing animals (añadido)
 - living things 
+- footprint (añadido)
+- Comfortable Campfires (añadido)
+- Mob Arrows Retriever (añadido)
+- Flatuence Update (The Fart Mod) (añadido)
+- Blockin' - Place that Block! (añadido)
+- Web (añadido)
+- Better Animal Feeding
+- Connected Doors (mod añadido)
+- Slide Show Pro (mod añadido)
+- Exline's Copper Equipment (mod añadido)
+- Exline's Wool to String (mod añadido)
+- NICE MOB VARIANTS (datapack exclusivo añadido)
 
+
+***Nota del desarrollador***
+
+*Gracias especiales al desarrollador 'NiceRon' por darme la oportunidad exclusiva de haber probado su modificacion, es justo lo que necesitaba para darle variedad al mundo a traves de los animales*
+
+
+**-karto**

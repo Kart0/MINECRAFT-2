@@ -42,3 +42,23 @@ El Shader interno fue ajustado para que el mundo no se vea tan saturado, tambié
 - Pause Server When Empty (añadido)
 - fleeing animals (añadido)
 - living things 
+- footprint (añadido)
+- Comfortable Campfires (añadido)
+- Mob Arrows Retriever (añadido)
+- Flatuence Update (The Fart Mod) (añadido)
+- Blockin' - Place that Block! (añadido)
+- Web (añadido)
+- Better Animal Feeding
+- Connected Doors (mod añadido)
+- Slide Show Pro (mod añadido)
+- Exline's Copper Equipment (mod añadido)
+- Exline's Wool to String (mod añadido)
+- NICE MOB VARIANTS (datapack exclusivo añadido)
+
+
+***Nota del desarrollador***
+
+*Gracias especiales al desarrollador 'NiceRon' por darme la oportunidad exclusiva de haber probado su modificacion, es justo lo que necesitaba para darle variedad al mundo a traves de los animales*
+
+
+**-karto**
