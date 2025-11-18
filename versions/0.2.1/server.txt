@@ -2,19 +2,6 @@
 
 Este es un pequeño parche el cuál trae la base para tener actualizaciones al alcance de 1 solo click, también se corrigen errores visuales y se hace la primera limpieza de mods redundantes.
 
-### **Cliente**
-
-Datos adicionales han sido añadidos/actualizados/ajustados para que no hayan errores gráficos presentes durante el gameplay, tambien se han ajustaods los menus dándoles una apariencia más ligada a la experiencia final, la parte estética del menu de 'Graficos' aún esta en beta pero es 100% funcional.
-
-*Info en detalle*▽
-- Añadidos datos de P.F.T. (errores visuales corregidos)
-- Barra de entidades ajustada
-- Jade y DnT traducidos
-- Resourcepacks actualizados
-- Mods redundantes de optimización removidos
-- Menus ajustados y rediseñados, "Graficos" reemplazado por "Chunks"
-- Renderizado de chunks y Teclas personalizadas reiniciadas*
-
 
 ### **Server**
 
