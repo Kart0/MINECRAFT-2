@@ -1,0 +1,19 @@
+# Archivo de configuracion para eliminar archivos Y CARPETAS
+# Formato: 
+#   carpeta:archivo          (para archivos individuales)
+#   carpeta:nombre_carpeta/  (para carpetas completas - termina con /)
+# 
+# Carpeta puede ser: raiz, config, datapacks, mods, resourcepacks
+# 
+# Ejemplos:
+# config:modmenu.json                    (archivo)
+# mods:oldmod.jar                        (archivo)
+# resourcepacks:texturepack.zip          (archivo)
+# resourcepacks:nombre_carpeta/          (CARPETA COMPLETA)
+# datapacks:old_datapack/                (CARPETA COMPLETA)
+# raiz:options.txt                       (archivo)
+# raiz:backups/                          (CARPETA COMPLETA)
+
+# Añade tus archivos a eliminar debajo:
+# v3.1.1
+mods:LookAtPlayer-1.2.2.jar

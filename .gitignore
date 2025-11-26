@@ -1,0 +1,12 @@
+# Carpetas en la raíz a ignorar
+BACKUP/
+versiones/
+media/
+
+# Archivos dentro de MODRINTH/
+MODRINTH/icon.ico
+MODRINTH/mc2_files/mods/*
+
+# Archivos dentro de SKLauncher (misma estructura)
+SKLauncher/icon.ico
+SKLauncher/mc2_files/mods/*

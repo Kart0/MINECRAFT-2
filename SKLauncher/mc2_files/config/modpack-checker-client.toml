@@ -1,0 +1,5 @@
+# Modpack Checker Client Configuration
+
+# Current modpack version - this should match the server's expected version
+# Use "0.0.0" for development (always allows joining)
+version = "0.3.1"
