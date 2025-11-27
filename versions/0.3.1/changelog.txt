@@ -1,0 +1,40 @@
+## **CAMBIOS HECHOS V0.3.1**
+
+¡Actualización pequeña pero importante! Han sido añadidas características de calidad de vida como por ejemplo la sincronización del cielo nocturno y el género para todos, otra de ellas es el MENU terminado de CHUNKS, ahora podrás configurar correctamente tu distancia de renderizado y ajustar tu tasa de FPS según tus necesidades.
+
+![teaser_v0.3.1](https://i.imgur.com/7x0jGwz.png)
+
+### **Cliente**
+
+Las constelaciones que se creen dentro del servidor serán compartidas entre todos los jugadores automáticamente, solo necesitas un catalejo, Si quieres personalizar tu genero puedes hacerlo presionando la tecla "RETROCESO" (←) un poco más arriba de la tecla "ENTER"
+
+*Info en detalle*▽
+
+- 'Spyglass Astronomy Sync' - añadido (cliente)
+- Cambio mínimo en 'Voice Chat', 'Talk Balloons' y tecla añadida para diseñar constelaciones
+- 'Spyglass Astronomy' traducido
+- 'LookAtPlayer' - eliminado (cliente)
+- Menu de CHUNKS finalizado
+- Renderizado de chunks y Teclas personalizadas reiniciadas*
+
+
+### **Server**
+
+Lista de jugadores rediseñada y mods/recetas mal optimizadas han sido eliminadas (se espera más en el futuro), ahora si algún jugador se conectó o se desconectó no habrá forma de saberlo a menos de que se abra la lista de jugadores, cuando éstos se vayan su "presencia" seguira dentro del juego, pero solo será visual ya que no sufriran ningún daño
+
+*Info en detalle*▽
+
+- 'StyledPlayerList' - config actualizada (server)
+- 'Random Village Names' - eliminado (server)
+- Recetas redundantes eliminadas (server)
+- Inmersión máxima: AFK PLUS, SHADOW PLAYER, Fabric CARPET, Command Scheduler (añadidos)
+- server.properties actualizado (network-compression-threshold / rate-limit)
+
+
+
+***Nota del desarrollador***
+
+*Ésta es la primera actualización en forma de parche, se espera que hayan más en un futuro para garantizar más optimizaciones*
+
+
+**-karto**

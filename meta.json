@@ -33,6 +33,17 @@
 					"generic": "https://www.mediafire.com/file/38sox9690aoy3lm/MC2_-_lite_%2528BETA%2529_-SK-.mrpack/file"
 				}
 			}
+		},
+		{
+			"id": "0.3.1",
+			"releasedAt": 1764202740560,
+			"updateType": "minor",
+			"promotions": {
+				"downloads": {
+					"modrinth": "https://github.com/Kart0/MINECRAFT-2/releases/download/v0.3.1/MC2.v0.3.1.-MR-.exe",
+					"generic": "https://github.com/Kart0/MINECRAFT-2/releases/download/v0.3.1/MC2.v0.3.1.-SK-.exe"
+				}
+			}
 		}
     ]
 }

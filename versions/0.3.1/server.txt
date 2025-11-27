@@ -1,0 +1,20 @@
+## **CAMBIOS HECHOS V0.3.1**
+
+Lista de jugadores rediseñada y mods/recetas mal optimizadas han sido eliminadas (se espera más en el futuro), ahora si algún jugador se conectó o se desconectó no habrá forma de saberlo a menos de que se abra la lista de jugadores, cuando éstos se vayan su "presencia" seguira dentro del juego, pero solo será visual ya que no sufriran ningún daño
+
+*Info en detalle*▽
+
+- 'StyledPlayerList' - config actualizada (server)
+- 'Random Village Names' - eliminado (server)
+- Recetas redundantes eliminadas (server)
+- Inmersión máxima: AFK PLUS, SHADOW PLAYER, Fabric CARPET, Command Scheduler (añadidos)
+- server.properties actualizado (network-compression-threshold / rate-limit)
+
+
+
+***Nota del desarrollador***
+
+*Ésta es la primera actualización en forma de parche, se espera que hayan más en un futuro para garantizar más optimizaciones*
+
+
+**-karto**
