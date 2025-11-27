@@ -2,7 +2,7 @@
 
 ¡Actualización pequeña pero importante! Han sido añadidas características de calidad de vida como por ejemplo la sincronización del cielo nocturno y el género para todos, otra de ellas es el MENU terminado de CHUNKS, ahora podrás configurar correctamente tu distancia de renderizado y ajustar tu tasa de FPS según tus necesidades.
 
-![teaser_v0.3.1](https://i.imgur.com/7x0jGwz.png)
+![teaser_v0.3.1](https://i.imgur.com/Pz94mnN.png)
 
 ### **Cliente**
 
