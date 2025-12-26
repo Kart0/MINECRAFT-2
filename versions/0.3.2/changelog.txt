@@ -1,0 +1,87 @@
+## **CAMBIOS HECHOS V0.3.2**
+
+¡Pequeña actualización llena de actualizaciones! Ésta actualización es intermedia (por asi decirlo) ya que está hecha para actualizar la mayoría de complementos del juego, pero también sirve para optimizar varias cosas dentro de los recursos del juego
+
+![teaser_v0.3.2](https://i.imgur.com/xdCkXxs.gif)
+
+Hay muchísimas actualizaciones de MODS y RESOURCEPACKS dentro de ésta versión, no hay muchos cambios estéticos más que la corrección de muchas texturas y partículas que estaban perdidas o no existían dentro del juego, aún se requiere el testeo para saber que falta añadir/corregir (como traducciones o algunos bugs visuales)
+
+*Info en detalle*▽
+
+CLIENTE:
+
+- Actualización:
+	=MODS=
+	- EMF / ETF
+	- 3D SKIN LAYERS
+	- Camera Overhaul
+	- Chat Patches
+	- Cool Rain
+	- Cosy Critters & Creepy Crawlies
+	- Drip Sounds
+	- DropConfirm
+	- DynamicNameplates
+	- Fast IP Ping
+	- Flashback
+	- First person model
+	- Inventory Particles
+	- InvMove
+	- Not Enough Animations
+	- Particle Rain
+	- Particle Effects
+	- Polytone
+	- Respackopts
+	- Smooth Swapping
+	- Wavey Capes
+
+	=RESOURCEPACKS=
+	- AL's Dungeons Boss Bars
+	- AL's Enderman Revamped x Fresh Animations
+	- Assorted Allays x Fresh Animations
+	- Bare Bones
+	- Bushy Vegetation
+	- Colourful containers GUI
+	- Fresh Animations
+	- Fresh Animations: Details
+	- Fresh Animations: Emissive
+	- Fresh Flower Pots
+	- Fresh Flower Pots:Rotated
+	- Delight Map
+	- Private's Skies
+	- Semos Animations Lib
+	- rainbow's foliage: polytone
+
+SERVER:
+
+- Actualización:
+	- Anvian's Lib 			(cliente)
+	- Dennis/Good Boy Painting 	(cliente)
+	- Fabric Language Kotlin 	(cliente)
+	- Friends&Foes (Fabric/Quilt) 	(cliente)
+	- FrozenLib			(cliente)
+	- FSit				(cliente)
+	- Fzzy Config			(cliente)
+	- Jade				(agregado)
+	- Lootr				(cliente)
+	- Maple				(cliente)
+	- Macaw's Fences and Walls	(cliente)
+	- Macaw's Holidays		(cliente)
+	- Macaw's Lights and Lamps	(cliente)
+	- Macaw's Stairs		(cliente)
+	- Macaw's Trapdoors		(cliente)
+	- Macaw's Windows		(cliente)
+	- MidnightLib			(cliente)
+	- Modern Networking		(cliente)
+	- Simple Voice Chat		(cliente)
+	- Storage Delight		(cliente)
+	- Talk Balloons			(cliente)
+	- Underlay			(modificado)
+	- Voice Messages		(cliente)
+
+
+***Nota del desarrollador***
+
+*Ha habido muchos cambios menores dentro de ésta version…. se espera una gran actualización para inicios de 2026, la cual probablemente será en forma de parche, si la actualización es muy grande o significativa, lo más probable es que requiera un cambio de versión general o LOADER, esperemos poder mantenernos dentro de la misma versión (1.21.5) para no tener incompatibilidades de MODS a futuro*
+
+
+**-karto**

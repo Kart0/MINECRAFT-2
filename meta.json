@@ -29,9 +29,6 @@
 			"updateType": "major",
 			"promotions": {
 				"downloads": {
-					"modrinth": "https://www.mediafire.com/file/l5xx1sl0i568efh/MC2_-_lite_%2528BETA%2529_-MR-.mrpack/file",
-					"generic": "https://www.mediafire.com/file/38sox9690aoy3lm/MC2_-_lite_%2528BETA%2529_-SK-.mrpack/file"
-				}
 			}
 		},
 		{
@@ -39,9 +36,16 @@
 			"releasedAt": 1764202740560,
 			"updateType": "minor",
 			"promotions": {
+			}
+		},
+		{
+			"id": "0.3.2",
+			"releasedAt": 1766732500111,
+			"updateType": "major",
+			"promotions": {
 				"downloads": {
-					"modrinth": "https://github.com/Kart0/MINECRAFT-2/releases/download/v0.3.1/MC2.v0.3.1.-MR-.exe",
-					"generic": "https://github.com/Kart0/MINECRAFT-2/releases/download/v0.3.1/MC2.v0.3.1.-SK-.exe"
+					"modrinth": "https://www.mediafire.com/file/8q74z5xdh41t1rj/MC2_-_lite_%2528BETA%2529_-MR-_v0.3.2.mrpack/file",
+					"generic": "https://www.mediafire.com/file/1xv3zvcei5ipc7i/MC2_-_lite_%2528BETA%2529_-SK-_v0.3.2.mrpack/file"
 				}
 			}
 		}
