@@ -2,7 +2,7 @@
 
 ¡Pequeña actualización llena de actualizaciones! Ésta actualización es intermedia (por asi decirlo) ya que está hecha para actualizar la mayoría de complementos del juego, pero también sirve para optimizar varias cosas dentro de los recursos del juego
 
-![teaser_v0.3.2](https://i.imgur.com/xdCkXxs.gif)
+![teaser_v0.3.2](https://i.imgur.com/cpLncMA.jpeg)
 
 Hay muchísimas actualizaciones de MODS y RESOURCEPACKS dentro de ésta versión, no hay muchos cambios estéticos más que la corrección de muchas texturas y partículas que estaban perdidas o no existían dentro del juego, aún se requiere el testeo para saber que falta añadir/corregir (como traducciones o algunos bugs visuales)
 
