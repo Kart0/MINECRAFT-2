@@ -11,7 +11,9 @@ Hay muchísimas actualizaciones de MODS y RESOURCEPACKS dentro de ésta versión
 CLIENTE:
 
 - Actualización:
+
 	=MODS=
+	
 	- EMF / ETF
 	- 3D SKIN LAYERS
 	- Camera Overhaul
@@ -35,6 +37,7 @@ CLIENTE:
 	- Wavey Capes
 
 	=RESOURCEPACKS=
+
 	- AL's Dungeons Boss Bars
 	- AL's Enderman Revamped x Fresh Animations
 	- Assorted Allays x Fresh Animations
@@ -54,29 +57,29 @@ CLIENTE:
 SERVER:
 
 - Actualización:
-	- Anvian's Lib 			(cliente)
-	- Dennis/Good Boy Painting 	(cliente)
-	- Fabric Language Kotlin 	(cliente)
-	- Friends&Foes (Fabric/Quilt) 	(cliente)
-	- FrozenLib			(cliente)
-	- FSit				(cliente)
-	- Fzzy Config			(cliente)
-	- Jade				(agregado)
-	- Lootr				(cliente)
-	- Maple				(cliente)
-	- Macaw's Fences and Walls	(cliente)
-	- Macaw's Holidays		(cliente)
-	- Macaw's Lights and Lamps	(cliente)
-	- Macaw's Stairs		(cliente)
-	- Macaw's Trapdoors		(cliente)
-	- Macaw's Windows		(cliente)
-	- MidnightLib			(cliente)
-	- Modern Networking		(cliente)
-	- Simple Voice Chat		(cliente)
-	- Storage Delight		(cliente)
-	- Talk Balloons			(cliente)
-	- Underlay			(modificado)
-	- Voice Messages		(cliente)
+	- Anvian's Lib (cliente)
+	- Dennis/Good Boy Painting (cliente)
+	- Fabric Language Kotlin (cliente)
+	- Friends&Foes (Fabric/Quilt) (cliente)
+	- FrozenLib (cliente)
+	- FSit (cliente)
+	- Fzzy Config (cliente)
+	- Jade (agregado)
+	- Lootr (cliente)
+	- Maple (cliente)
+	- Macaw's Fences and Walls (cliente)
+	- Macaw's Holidays (cliente)
+	- Macaw's Lights and Lamps (cliente)
+	- Macaw's Stairs (cliente)
+	- Macaw's Trapdoors (cliente)
+	- Macaw's Windows (cliente)
+	- MidnightLib (cliente)
+	- Modern Networking (cliente)
+	- Simple Voice Chat (cliente)
+	- Storage Delight (cliente)
+	- Talk Balloons (cliente)
+	- Underlay (modificado)
+	- Voice Messages (cliente)
 
 
 ***Nota del desarrollador***
