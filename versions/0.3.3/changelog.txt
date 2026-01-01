@@ -1,0 +1,63 @@
+## **CAMBIOS HECHOS V0.3.3**
+
+¡Ultima actualización del año! Seguimos con actualizaciones de mods pero también se agrega una opción de rendimiento en el apartado de 'CHUNKS', gracias a "DLSS" podrás hacer un reescalado de manera manual para ganar rendimiento o para "mejorar" la imagen, también se han corregido múltiples errores de renderizado y se han removido mods redundantes.
+
+![teaser_v0.3.3](https://i.imgur.com/ptO9HjE.png)
+
+Se ha optimizado un poco más el cliente, sobre todo a las entidades y los bloques de entidades, también se han añadido ciervos y se ha traducido alguno que otro mod. También se ha aumentado la inmersión de las tormentas de arena, favoreciendo el realismo dentro de ellas.
+
+*Info en detalle*▽
+
+CLIENTE:
+
+- Actualización:
+
+	=MODS=
+	- I See My Armored Hand (ismah) (actualizado)
+	- Particle Effects (actualizado)
+	- EMF / ETF (actualizado)
+	- Dynamic Crosshair (actualziado)
+	- Wavey Capes (actualizado)
+	- Blur+ (actualizado)
+	- Inventory Particles (actualizado)
+	- Modern Networking / MossyLib (actualizado)
+	- Immersive Storms (añadido)
+	- Immersive Water (añadido)
+	- Culler / TLib (añadido)
+	- Culler (añadido)
+	- RenderScale (añadido)
+	- Particle Expansion (añadido)
+	- Lghty (añadido)
+	- Tooltip Overhaul (añadido)
+	- Glowing Torchflower (añadido)
+	- Fabrishot (removido)
+
+	=RESOURCEPACKS=
+	- Icons (actualizado)
+	- Nautilus (modificado)
+	- Creeper Overhaul (modificado)
+	- MC2 - core addon (modificado)
+	- Diagonal Perfect Rails 3D PBR (añadido)
+
+SERVER:
+
+	- Command Scheduler (config)
+	- Random Mob Sizes (config)
+	- Modern Networking (actualizado)
+	- Glowing Torchflower (añadido)
+	- Async (añadido)
+	- Recording Indicators (añadido)
+	- TT20 (TPS Fixer) (añadido)
+	- When Dungeons Arise: Seven Seas (añadido)
+	- Creeper Firework (añadido)
+	- Deer Mod (añadido)
+	- Sleepwarp (removido)
+	- Particle Expansion (removido)
+
+
+***Nota del desarrollador***
+
+*Muchas gracias a todos los que me han acompañado en este proyecto a los largo del 2025, espero poder publicarlo de manera global en el primer trimestre del 2026 ya que antes de que acabe enero muy probablemente se lanzará la versión 0.4.0 la cual muy seguramente será una versión base muy sólida*
+
+
+**-karto**
