@@ -49,9 +49,16 @@
 			"releasedAt": 1767234098222,
 			"updateType": "major",
 			"promotions": {
+			}
+		},
+		{
+			"id": "0.3.4",
+			"releasedAt": 1767416499301,
+			"updateType": "minor",
+			"promotions": {
 				"downloads": {
-					"modrinth": "https://www.mediafire.com/file/72as0p251jgu5z7/MC2_-_lite_%2528BETA%2529_-MR-_v0.3.3.mrpack/file",
-					"generic": "https://www.mediafire.com/file/fvop7rvzcck6wxv/MC2_-_lite_%2528BETA%2529_-SK-_v0.3.3.mrpack/file"
+					"modrinth": "https://www.mediafire.com/file/xp0n3mhw14ibero/MC2_-_lite_%2528BETA%2529_-MR-_v0.3.4.mrpack/file",
+					"generic": "https://www.mediafire.com/file/1oi5jzdm8mzwjb8/MC2_-_lite_%2528BETA%2529_-SK-_v0.3.4.mrpack/file"
 				}
 			}
 		}

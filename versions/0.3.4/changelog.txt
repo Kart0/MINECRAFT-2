@@ -1,0 +1,22 @@
+## **CAMBIOS HECHOS V0.3.4**
+
+Éste es un pequeño parche de optimización pero muy importante a la vez ya que cambia elementos en la interfaz y también añade la 'HACHA DE ÁRBOL', un objeto dedicado a talar árboles exclusivamente.
+
+![teaser_v0.3.4](https://i.imgur.com/0SMTtMK.gif)
+
+*Info en detalle*▽
+
+- Añadida HACHA PARA TALAR (Tree Axes)
+- Iconos de VOICE CHAT ajustados
+- Modelo en 3d de la mesa de desencantamiento añadido
+- Se ha bajado la intensidad visual de la tormenta de arena
+- Eliminados mods de entidades por spawn masivo e innecesario (Homesteads, Boids, Toms Mobs, Living Things)
+- Pedos removidos
+
+
+***Nota del desarrollador***
+
+*¡Primer parche del año! Está lleno de hotfixes y añade cosas nuevas para que puedan tener una experiencia un poco más acorde a lo que se quiere trasmitir, esperemos que ésta versión dure bastante, la próxima versión traerá muchos cambios visuales*
+
+
+**-karto**
