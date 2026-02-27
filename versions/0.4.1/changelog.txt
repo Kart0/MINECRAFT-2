@@ -1,0 +1,21 @@
+## **CAMBIOS HECHOS V0.4.1**
+
+Ésta es una actualización menor que trae mejoras visuales para los minerales algunos mods, los que se puedan se verán en 3D y no se romperá la lógica con los minerales vanilla, también se arreglaron algunas traducciones y el servidor BETA se introdujo correctamente en la pantalla de MULTIJUGADOR
+
+![teaser_v0.4.1](https://i.imgur.com/MrEhoSw.png)
+
+*Info en detalle*▽
+
+- Mejora visual para los minerales 
+- Server multijugador agregado correctamente
+- Traducciones arregladas
+- Mods actualizados
+- Packs de recursos actualizados
+- Herobrine removido
+
+***Nota del desarrollador***
+
+*Saqué esta actualización en mi cumpleaños, no hay nada más relevante que pueda comentar creo*
+
+
+**-karto**
