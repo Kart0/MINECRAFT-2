@@ -75,7 +75,7 @@
 			"updateType": "minor",
 			"promotions": {
 				"downloads": {
-					"modrinth": "https://github.comcurren/Kart0/MINECRAFT-2/releases/download/0.4.1/MC2.v0.4.1.-MR-.exe",
+					"modrinth": "https://github.com/Kart0/MINECRAFT-2/releases/download/0.4.1/MC2.v0.4.1.-MR-.exe",
 					"generic": "https://github.com/Kart0/MINECRAFT-2/releases/download/0.4.1/MC2.v0.4.1.-SK-.exe"
 				}
 			}
