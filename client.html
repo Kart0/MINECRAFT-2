@@ -189,6 +189,45 @@
             transform: translateY(0);
         }
 
+        /* Estilos para la versión base (siempre visible arriba) */
+        .base-version-section {
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .base-version-title {
+            color: #FFD700;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .version-item.base-version {
+            border-color: #FFD700;
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .version-item.base-version .version-id {
+            color: #FFD700;
+        }
+
+        /* Separador entre versión base y actualizaciones */
+        .updates-section {
+            margin-top: 10px;
+        }
+
+        .updates-title {
+            color: #4CAF50;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
         .version-item {
             padding: 12px 15px;
             margin-bottom: 8px;
@@ -233,7 +272,7 @@
             opacity: 0.8;
         }
 
-        /* Botón cuadrado para la versión más reciente */
+        /* Botón cuadrado para descargar */
         .version-button {
             width: 40px;
             height: 40px;
@@ -243,8 +282,6 @@
             background: transparent;
             position: relative;
             overflow: hidden;
-            opacity: 0;
-            visibility: hidden;
             margin-left: 10px;
             border-radius: 0;
             display: flex;
@@ -256,7 +293,14 @@
             z-index: 2;
         }
 
-        .version-item:first-child.selected .version-button {
+        /* La versión base SIEMPRE tiene el botón visible */
+        .base-version .version-button {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        /* La versión más reciente entre las actualizaciones tiene botón visible */
+        .version-item:first-child .version-button {
             opacity: 1;
             visibility: visible;
         }
@@ -642,6 +686,9 @@
         // URLs base de GitHub
         const GITHUB_BASE_URL = 'https://raw.githubusercontent.com/Kart0/MINECRAFT-2/main';
         const META_JSON_URL = 'https://raw.githubusercontent.com/Kart0/MINECRAFT-2/main/meta.json';
+        
+        // Versión base fija (siempre visible arriba)
+        const BASE_VERSION_ID = '0.4.0';
 
         // Variables globales
         let currentVersionId = '';
@@ -765,6 +812,54 @@
             }
         }
 
+        // Función para crear el elemento HTML de una versión
+        function createVersionElement(version, isBaseVersion = false, isFirstUpdate = false) {
+            const versionElement = document.createElement('div');
+            versionElement.className = 'version-item';
+            
+            if (isBaseVersion) {
+                versionElement.classList.add('base-version');
+            }
+            
+            // Solo agregar selected si es la versión base (para que aparezca seleccionada por defecto)
+            if (isBaseVersion) {
+                versionElement.classList.add('selected');
+            }
+            
+            // Determinar si debe mostrar el botón de descarga
+            let showDownloadButton = false;
+            if (isBaseVersion) {
+                showDownloadButton = true; // La versión base SIEMPRE tiene botón
+            } else if (isFirstUpdate) {
+                showDownloadButton = true; // La primera actualización (más reciente) tiene botón
+            }
+            
+            const buttonHtml = showDownloadButton ? 
+                `<button class="version-button" onclick="mostrarModalDescarga('${version.id}')">⤓</button>` : 
+                '';
+            
+            versionElement.innerHTML = `
+                <div class="version-info">
+                    <div class="version-id">${version.id}</div>
+                    <div class="version-date">${formatDate(version.releasedAt)}</div>
+                </div>
+                ${buttonHtml}
+            `;
+            
+            versionElement.addEventListener('click', () => {
+                // Remover selección de todos los items
+                document.querySelectorAll('.version-item').forEach(item => {
+                    item.classList.remove('selected');
+                });
+                // Agregar selección al item clickeado
+                versionElement.classList.add('selected');
+                // Cargar detalles de la versión seleccionada
+                showVersionDetails(version.id);
+            });
+            
+            return versionElement;
+        }
+
         // Función para cargar las versiones desde el JSON
         async function loadVersions() {
             try {
@@ -778,39 +873,56 @@
                 const versionsList = document.getElementById('versions-list');
                 versionsList.innerHTML = '';
                 
-                // Ordenar versiones por fecha (más reciente primero)
-                const sortedVersions = data.versions.sort((a, b) => b.releasedAt - a.releasedAt);
+                // Separar la versión base del resto
+                const baseVersion = data.versions.find(v => v.id === BASE_VERSION_ID);
+                const otherVersions = data.versions.filter(v => v.id !== BASE_VERSION_ID);
                 
-                sortedVersions.forEach((version, index) => {
-                    const versionElement = document.createElement('div');
-                    versionElement.className = 'version-item';
-                    if (index === 0) {
-                        versionElement.classList.add('selected');
-                        // Cargar detalles de la primera versión automáticamente
-                        showVersionDetails(version.id);
-                    }
+                // Ordenar las otras versiones por fecha (más reciente primero)
+                const sortedOtherVersions = otherVersions.sort((a, b) => b.releasedAt - a.releasedAt);
+                
+                // 1. SECCIÓN: Versión Base (si existe)
+                if (baseVersion) {
+                    const baseSection = document.createElement('div');
+                    baseSection.className = 'base-version-section';
                     
-                    versionElement.innerHTML = `
-                        <div class="version-info">
-                            <div class="version-id">${version.id}</div>
-                            <div class="version-date">${formatDate(version.releasedAt)}</div>
-                        </div>
-                        ${index === 0 ? '<button class="version-button" onclick="mostrarModalDescarga(\'' + version.id + '\')">⤓</button>' : ''}
-                    `;
+                    const baseTitle = document.createElement('div');
+                    baseTitle.className = 'base-version-title';
+                    baseTitle.textContent = '⚡ VERSION BASE ⚡';
+                    baseSection.appendChild(baseTitle);
                     
-                    versionElement.addEventListener('click', () => {
-                        // Remover selección de todos los items
-                        document.querySelectorAll('.version-item').forEach(item => {
-                            item.classList.remove('selected');
-                        });
-                        // Agregar selección al item clickeado
-                        versionElement.classList.add('selected');
-                        // Cargar detalles de la versión seleccionada
-                        showVersionDetails(version.id);
+                    const baseElement = createVersionElement(baseVersion, true, false);
+                    baseSection.appendChild(baseElement);
+                    
+                    versionsList.appendChild(baseSection);
+                }
+                
+                // 2. SECCIÓN: Actualizaciones (si hay)
+                if (sortedOtherVersions.length > 0) {
+                    const updatesSection = document.createElement('div');
+                    updatesSection.className = 'updates-section';
+                    
+                    const updatesTitle = document.createElement('div');
+                    updatesTitle.className = 'updates-title';
+                    updatesTitle.textContent = '📦 ACTUALIZACION 📦';
+                    updatesSection.appendChild(updatesTitle);
+                    
+                    // Crear elementos para cada actualización
+                    sortedOtherVersions.forEach((version, index) => {
+                        const isFirstUpdate = (index === 0);
+                        const versionElement = createVersionElement(version, false, isFirstUpdate);
+                        updatesSection.appendChild(versionElement);
                     });
                     
-                    versionsList.appendChild(versionElement);
-                });
+                    versionsList.appendChild(updatesSection);
+                }
+                
+                // Seleccionar la versión base por defecto y cargar su changelog
+                if (baseVersion) {
+                    showVersionDetails(baseVersion.id);
+                } else if (sortedOtherVersions.length > 0) {
+                    // Si no hay versión base, seleccionar la primera actualización
+                    showVersionDetails(sortedOtherVersions[0].id);
+                }
                 
             } catch (error) {
                 console.error('Error cargando las versiones:', error);
