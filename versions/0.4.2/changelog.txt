@@ -1,0 +1,20 @@
+## **CAMBIOS HECHOS V0.4.2**
+
+Ésta actualización menor trae añade/corrige ciertos elementos estéticos para que la experiencia sea más amigable con el jugador.
+
+![teaser_v0.4.2](https://i.imgur.com/86nfVDU.gif)
+
+*Info en detalle*▽
+
+- Mods actualizados
+- Resourcepacks actualizados/añadidos
+- Módulos actualizados
+- Distancia de renderizado reiniciada (24 chunks)
+- Herobrine removido
+
+***Nota del desarrollador***
+
+*Muy seguramente en la próxima actualización haya una mejora en el comportamiento dinámico de la cámara*
+
+
+**-karto**
