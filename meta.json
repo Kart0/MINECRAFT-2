@@ -80,10 +80,17 @@
 			"id": "0.4.2",
 			"releasedAt": 1772591804907,
 			"updateType": "minor",
+			"promotions": {
+			}
+		},
+		{
+			"id": "0.4.3",
+			"releasedAt": 1772662457137,
+			"updateType": "minor",
 			"promotions": {	
 				"downloads": {
-					"modrinth": "https://github.com/Kart0/MINECRAFT-2/releases/download/0.4.2/MC2.v0.4.2.-MR-.exe",
-					"generic": "https://github.com/Kart0/MINECRAFT-2/releases/download/0.4.2/MC2.v0.4.2.-SK-.exe"
+					"modrinth": "https://github.com/Kart0/MINECRAFT-2/releases/download/0.4.3/MC2.v0.4.3.-MR-.exe",
+					"generic": "https://github.com/Kart0/MINECRAFT-2/releases/download/0.4.3/MC2.v0.4.3.-SK-.exe"
 				}
 			}
 		}

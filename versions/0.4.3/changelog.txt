@@ -1,0 +1,20 @@
+## **CAMBIOS HECHOS V0.4.3**
+
+Esta actualización está enfocada enormemente en ampliar el nether añadiendole nuevos biomas, también se añade un comportamiento dinámico para la cámara, la posibilidad de moverse hacia adelante automáticamente y corrige varios problemas de texturas/modelos.
+
+![teaser_v0.4.3](https://i.imgur.com/V7gAEaw.gif)
+
+*Info en detalle*▽
+
+- Mods añadidos/actualizados
+- Resourcepacks corregidos
+- Nether expandido
+- Distancia de renderizado reiniciada (24 chunks)
+- Herobrine removido
+
+***Nota del desarrollador***
+
+*La actualización está enfocada en hacer más dinámica la exploración*
+
+
+**-karto**
